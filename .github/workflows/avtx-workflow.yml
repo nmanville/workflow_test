@@ -19,20 +19,20 @@ jobs:
         python -m pip install --upgrade requests
 
     - uses: jannekem/run-python-script-action@v1
-    with:
-      script: |
-        import requests
-        import json
+      with:
+        script: |
+          import requests
+          import json
 
-        endpoint = ${{ secrets.WORKFLOW_ENDPOINT }}
-        headers = {
-            "accept": "application/json",
-            "Content-Type": "application/json",
-        }
-        payload = {"repository": ${{ github.repository }} }
-        req = requests.post(
-            f"{endpoint}/update_tf",
-            headers=headers,
-            data=json.dumps(payload),
-        )
-        print(req.json())
+          endpoint = ${{ secrets.WORKFLOW_ENDPOINT }}
+          headers = {
+              "accept": "application/json",
+              "Content-Type": "application/json",
+          }
+          payload = {"repository": ${{ github.repository }} }
+          req = requests.post(
+              f"{endpoint}/update_tf",
+              headers=headers,
+              data=json.dumps(payload),
+          )
+          print(req.json())

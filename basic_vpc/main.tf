@@ -9,6 +9,11 @@ resource "aws_subnet" "private_subnet1" {
   cidr_block              = "10.10.0.0/24"
 }
 
+resource "aws_subnet" "private_subnet2" {
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = "10.10.1.0/24"
+}
+
 
 #resource "aws_security_group" "ecs_security_group" {
 #  name        = "ecs_security_group"

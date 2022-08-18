@@ -4,10 +4,11 @@ resource "aws_vpc" "vpc" {
   enable_dns_hostnames = true
 }
 
-resource "aws_subnet" "private_subnets" {
+resource "aws_subnet" "private_subnet1" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = "10.10.0.0/24"
 }
+
 
 #resource "aws_security_group" "ecs_security_group" {
 #  name        = "ecs_security_group"
